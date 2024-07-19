@@ -5,9 +5,5 @@ out vec4 FragColor;
 in vec2 TexCoord;
 
 void main() {
-  float r = TexCoord.x;
-  float g = TexCoord.y;
-  float b = 0.0;
-
-  FragColor = vec4(r, g, b, 1.0);
+  FragColor = vec4(TexCoord.xy, 0.0, 1.0);
 }
