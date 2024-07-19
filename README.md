@@ -7,4 +7,4 @@ I'll be trying to learn some raytracing concepts using SDL3 (window, events) and
 - pkg-config
 
 ## Building
-Run `make` to build an executable at `/build/main`. Run `make clean` to clean up the executable.
+Run `make` to build an executable at `build/main`. Run `make clean` to clean up the executable.
