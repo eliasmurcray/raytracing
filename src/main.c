@@ -62,17 +62,6 @@ int main() {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-  glBegin(GL_QUADS);
-  glTexCoord2f(0.0f, 0.0f);
-  glVertex2f(-1.0f, -1.0f);
-  glTexCoord2f(1.0f, 0.0f);
-  glVertex2f( 1.0f, -1.0f);
-  glTexCoord2f(1.0f, 1.0f);
-  glVertex2f( 1.0f,  1.0f);
-  glTexCoord2f(0.0f, 1.0f);
-  glVertex2f(-1.0f,  1.0f);
-  glEnd();
-
   SDL_Event event;
   unsigned char running = 1;
   while(running) {
