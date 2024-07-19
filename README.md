@@ -5,3 +5,6 @@ I'll be trying to learn some raytracing concepts using SDL3 (window, events) and
 - SDL3 ([Installation Instructions](https://wiki.libsdl.org/SDL3/Installation))
 - glew ([Releases](https://github.com/nigels-com/glew/releases))
 - pkg-config
+
+## Building
+Run `make` to build an executable at `/build/main`. Run `make clean` to clean up the executable.
