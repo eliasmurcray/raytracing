@@ -54,6 +54,25 @@ int main() {
     return 1;
   }
 
+  GLuint texture;
+  glGenTextures(1, &texture);
+  glBindTexture(GL_TEXTURE_2D, texture);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+  glBegin(GL_QUADS);
+  glTexCoord2f(0.0f, 0.0f);
+  glVertex2f(-1.0f, -1.0f);
+  glTexCoord2f(1.0f, 0.0f);
+  glVertex2f( 1.0f, -1.0f);
+  glTexCoord2f(1.0f, 1.0f);
+  glVertex2f( 1.0f,  1.0f);
+  glTexCoord2f(0.0f, 1.0f);
+  glVertex2f(-1.0f,  1.0f);
+  glEnd();
+
   SDL_Event event;
   unsigned char running = 1;
   while(running) {
@@ -66,18 +85,7 @@ int main() {
     }
 
     buffer_data(data);
-    GLuint texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, IMAGE_WIDTH, IMAGE_HEIGHT, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glClearColor(0, 0, 0.4, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    glBindTexture(GL_TEXTURE_2D, texture);
 
     glBegin(GL_QUADS);
     glTexCoord2f(0.0f, 0.0f);
@@ -92,7 +100,7 @@ int main() {
 
     SDL_GL_SwapWindow(window);
 
-    SDL_DelayNS(1000);
+    SDL_DelayNS(1000000);
   }
   
   free(data);
