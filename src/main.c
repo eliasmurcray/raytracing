@@ -35,7 +35,7 @@ int main() {
       SDL_GL_DestroyContext(ctx);
       SDL_DestroyWindow(window);
       SDL_Quit();
-      return -1;
+      return 1;
   }
 
   unsigned int program = glprogram("src/vertex_shader.glsl", "src/fragment_shader.glsl");
