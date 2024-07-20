@@ -15,8 +15,8 @@ static char* freadstr(const char* filename) {
   return buffer;
 }
 
-static GLuint glshader(GLenum type, const char* src) {
-  GLuint shader = glCreateShader(type);
+static unsigned int glshader(GLenum type, const char* src) {
+  unsigned int shader = glCreateShader(type);
   glShaderSource(shader, 1, &src, NULL);
   glCompileShader(shader);
   int success;
@@ -29,12 +29,12 @@ static GLuint glshader(GLenum type, const char* src) {
   return shader;
 }
 
-GLuint glprogram(const char* vpath, const char *fpath) {
+unsigned int glprogram(const char* vpath, const char *fpath) {
   char *vsrc = freadstr(vpath);
   char *fsrc = freadstr(fpath);
-  GLuint vs = glshader(GL_VERTEX_SHADER, vsrc);
-  GLuint fs = glshader(GL_FRAGMENT_SHADER, fsrc);
-  GLuint program = glCreateProgram();
+  unsigned int vs = glshader(GL_VERTEX_SHADER, vsrc);
+  unsigned int fs = glshader(GL_FRAGMENT_SHADER, fsrc);
+  unsigned int program = glCreateProgram();
   glAttachShader(program, vs);
   glAttachShader(program, fs);
   glLinkProgram(program);

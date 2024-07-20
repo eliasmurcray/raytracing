@@ -30,7 +30,6 @@ int main() {
     return 1;
   }
 
-  glewExperimental = GL_TRUE;
   if (glewInit() != GLEW_OK) {
       fprintf(stderr, "Failed to initialize GLEW\n");
       SDL_GL_DestroyContext(ctx);
@@ -39,7 +38,7 @@ int main() {
       return -1;
   }
 
-  GLuint program = glprogram("src/vertex_shader.glsl", "src/fragment_shader.glsl");
+  unsigned int program = glprogram("src/vertex_shader.glsl", "src/fragment_shader.glsl");
   float vertices[] = {
       -1.0f, -1.0f,   0.0f, 0.0f,
        1.0f, -1.0f,   1.0f, 0.0f,
@@ -52,7 +51,7 @@ int main() {
       2, 3, 0
   };
 
-  GLuint VBO, VAO, EBO;
+  unsigned int VBO, VAO, EBO;
   glGenVertexArrays(1, &VAO);
   glGenBuffers(1, &VBO);
   glGenBuffers(1, &EBO);
